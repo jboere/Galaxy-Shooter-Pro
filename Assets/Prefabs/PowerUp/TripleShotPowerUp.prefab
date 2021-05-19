@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 429969037297202454}
   - component: {fileID: 8418023911655988929}
   - component: {fileID: 2145330974026372364}
-  - component: {fileID: 2687031817806919629}
-  - component: {fileID: 5569774924548494391}
+  - component: {fileID: 7668939511857826176}
   m_Layer: 0
   m_Name: TripleShotPowerUp
   m_TagString: Untagged
@@ -132,26 +131,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &2687031817806919629
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5329519776631392606}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b15301e3afb5da447964e4271f43bd75, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5569774924548494391
+--- !u!114 &7668939511857826176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5329519776631392606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e835f8abbc187bd4dbbb206e45445ae6, type: 3}
+  m_Script: {fileID: 11500000, guid: fa503d76c2883e244bf1bfc0362c804a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3

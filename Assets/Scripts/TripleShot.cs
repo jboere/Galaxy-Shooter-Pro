@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Powerup : MonoBehaviour
+public class TripleShot : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 3.0f;
-    [SerializeField]// 0 = triple shot, 1 = speed, 2 = shields
-    private int powerupID;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -31,21 +28,7 @@ public class Powerup : MonoBehaviour
             Player player = other.transform.GetComponent<Player>();
             if (player != null)
             {
-                switch(powerupID)
-                {
-                    case 0:
-                        player.TripleShotActive();
-                        break;
-                    case 1:
-                        player.SpeedActive();
-                        break;
-                    case 2:
-                        Debug.Log("Shields activated!");
-                        break;
-                    default:
-                        Debug.Log("Default value");
-                        break;
-                }
+                player.TripleShotActive();
             }
             Destroy(this.gameObject);
         }
