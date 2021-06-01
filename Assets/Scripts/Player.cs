@@ -27,15 +27,23 @@ public class Player : MonoBehaviour
     private bool _isShieldsActive = false;
     [SerializeField]
     private float _coolDownRate = 5.0f;
+    [SerializeField]
+    private int _score;
+
+    private UIManager _uiManager;
     // Start is called before the first frame update
     void Start()
     {
         transform.position = new Vector3(0, 0, 0);
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-
+        _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         if (_spawnManager == null)
         {
             Debug.LogError("The spawn manager is NULL.");
+        }
+        if (_uiManager == null)
+        {
+            Debug.LogError("The UI Manager is NULL.");
         }
     }
 
@@ -48,7 +56,6 @@ public class Player : MonoBehaviour
         {
             FireLaser();
         }
-
     }
     void CalculateMovement()
     {
@@ -60,13 +67,13 @@ public class Player : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.8f, 0), 0);
 
-        if (transform.position.x > 15.5f)
+        if (transform.position.x > 11f)
         {
-            transform.position = new Vector3(-15.5f, transform.position.y, 0);
+            transform.position = new Vector3(-11f, transform.position.y, 0);
         }
-        else if (transform.position.x < -15.5f)
+        else if (transform.position.x < -11f)
         {
-            transform.position = new Vector3(15.5f, transform.position.y, 0);
+            transform.position = new Vector3(11f, transform.position.y, 0);
         }
     }
     void FireLaser()
@@ -90,7 +97,7 @@ public class Player : MonoBehaviour
             return;
         }
         _lives--;
-
+        _uiManager.UpdateLives(_lives);
         if (_lives < 1)
         {
             _spawnManager.OnPlayerDeath();
@@ -129,5 +136,10 @@ public class Player : MonoBehaviour
             _isSpeedBoostActive = false;
             _speed /= _speedMultiplier;
         }
+    }
+    public void AddScore(int points)
+    {
+        _score += points;
+        _uiManager.UpdateScore(_score);
     }
 }
